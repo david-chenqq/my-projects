@@ -1,9 +1,10 @@
 require.config({
-	baseUrl : 'js/lib',
+	baseUrl : '',
 	paths : {
-		app: '../app',
-		angular : './angular/angular.min',
-		angularRoute : './angular/angular-route.min'
+		app: 'js/app',
+		angular : 'js/lib/angular/angular.min',
+		ngRoute : 'js/lib/angular/angular-route.min',
+		rootController: 'js/controller/rootController'	
 	},
 	shim : {
 		angular : { 'exports' : 'angular' },
@@ -11,6 +12,8 @@ require.config({
 	}
 });
 
-require(['app', 'angular'], function(app) {
+require(['app', 
+         'angular'
+         ], function(app) {
 	angular.bootstrap(document, ['app']);
 });

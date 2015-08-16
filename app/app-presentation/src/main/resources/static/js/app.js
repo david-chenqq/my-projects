@@ -1,15 +1,15 @@
-define(['angular'], function(angular) {
+"use strict";
 
-	var app =  angular.module('app',[]);
+define(['angular','ngRoute', 'rootController'], function(angular) {
 
-	app.run(function() {
-		console.log('Yahoo!');
-	});
-	
-	app.config(function(){
-		console.log('config!');
-	});
+	var app =  angular.module('app',['ngRoute', 'controllers']);
 
-//	alert("haha");
+	app.config(['$routeProvider',function($routeProvider){
+		$routeProvider.when('/',{
+			templateUrl: "template/root.html",
+			controller: "RootCtrl"
+		})
+	}]);
+
 	return app;
 });
