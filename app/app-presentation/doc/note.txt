@@ -1,0 +1,3 @@
+require define: decide which js files needed
+
+angularjs module: decide which module needed (controller and service are not module)

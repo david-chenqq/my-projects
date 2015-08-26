@@ -1,8 +1,13 @@
 "use strict";
 
-define(['angular','ngRoute', 'rootController'], function(angular) {
+define([
+        'angular',
+        'controllers',
+        'js/controller/rootController',
+        'js/service/rootService'
+        ], function(angular) {
 
-	var app =  angular.module('app',['ngRoute', 'controllers']);
+	var app =  angular.module('app',['ngRoute', 'ngResource', 'controllers', 'services']);
 
 	app.config(['$routeProvider',function($routeProvider){
 		$routeProvider.when('/',{

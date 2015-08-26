@@ -4,11 +4,16 @@ require.config({
 		app: 'js/app',
 		angular : 'js/lib/angular/angular.min',
 		ngRoute : 'js/lib/angular/angular-route.min',
-		rootController: 'js/controller/rootController'	
+		ngResource: 'js/lib/angular/angular-resource.min',
+		controllers: 'js/controller/controllers',
+		services: 'js/service/services'
 	},
 	shim : {
 		angular : { 'exports' : 'angular' },
-		angularRoute: {deps:['angular']}
+		ngRoute: {deps:['angular']},
+		ngResource: {deps:['angular']},
+		services: {deps:['ngResource']},
+		controllers: {deps:['ngRoute','services']}
 	}
 });
 

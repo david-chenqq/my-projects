@@ -1,11 +1,16 @@
-define(['angular'], function(angular){
+define(['controllers'], function(controllers){
 	'use strict';
-	var controllers = angular.module('controllers', []);
-	controllers.controller('RootCtrl', [ '$scope', function($scope) {
+	controllers.controller('RootCtrl', [ '$scope', '$http', 'rootService', 
+	                                     function($scope, $http, rootService) {
 		$scope.username = 'World';
 
 		$scope.sayHello = function() {
-			$scope.greeting = 'Hello ' + $scope.username + '!';
+			rootService.query().success(function (response) {
+				$scope.greeting  = response.name + ", you are " + response.age + " years old.";
+				$scope.username = response.name;
+            })
+			
+			// $scope.greeting = 'Hello ' + $scope.username + '!';
 		};
 	} ]);
 	return controllers;
